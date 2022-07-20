@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">AppWuYi</string>
+    <dimen name="maintitle">20sp</dimen>
+    <dimen name="maindate">8sp</dimen>
+    <dimen name="mainwea">16sp</dimen>
+    <dimen name="mainweainfo">35sp</dimen>
+    <dimen name="firstpagepadd">7px</dimen>
+    <dimen name="firstpagetextsize">12sp</dimen>
+    <dimen name="firstpageindexsize">10sp</dimen>
+    <dimen name="secondpagepadd">7px</dimen>
+    <dimen name="secondpagetextsize">35sp</dimen>
+    <dimen name="secondpageindexsize">35sp</dimen>
+    <dimen name="secondpageinfosize">30sp</dimen>
+    <dimen name="thirdpagepadd">7px</dimen>
+    <dimen name="thirdpagetextsize">35sp</dimen>
+    <dimen name="thirdpageindexsize">35sp</dimen>
+    <dimen name="dateSize">30sp</dimen>
+    <dimen name="dateinfoSize">30sp</dimen>
+    <dimen name="weainfoSize">30sp</dimen>
+</resources>
