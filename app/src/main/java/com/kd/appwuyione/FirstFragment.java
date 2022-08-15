@@ -26,8 +26,12 @@ public class FirstFragment extends Fragment {
             inflate = DataBindingUtil.inflate(inflater, R.layout.activity_first, container, false);
         }
         if(live!=null){
-            EventBus.getDefault().post(new UpdateTime("更新时间:"+live.updatetime));
+           // EventBus.getDefault().post(new UpdateTime("更新时间:"+live.updatetime));
             inflate.setLive(live);
+        }
+        if(elements!=null){
+          //  EventBus.getDefault().post(new UpdateTime("更新时间:"+elements.getDate()+" "+elements.getTime()));
+            inflate.setElements(elements);
         }
         return inflate.getRoot();
     }
@@ -39,6 +43,16 @@ public class FirstFragment extends Fragment {
             if(live!=null){
                 EventBus.getDefault().post(new UpdateTime(live.updatetime));
                 inflate.setLive(live);
+            }
+        }
+    }
+    Elements elements;
+    public void updateInfo(Elements elements){
+        this.elements =elements;
+        if(inflate!=null) {
+            if(elements!=null){
+                EventBus.getDefault().post(new UpdateTime("更新时间:"+elements.getDate()+" "+elements.getTime()));
+                inflate.setElements(elements);
             }
         }
     }

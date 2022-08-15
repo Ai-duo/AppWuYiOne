@@ -6,6 +6,9 @@
         <variable
             name="live"
             type="com.kd.appwuyione.Live" />
+        <variable
+            name="elements"
+            type="com.kd.appwuyione.Elements" />
 
     </data>
 
@@ -34,7 +37,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0px"
-                    android:layout_weight="1.2"
+                    android:layout_weight="1.5"
                     android:paddingLeft="@dimen/firstpagepadd"
                     android:paddingTop="@dimen/firstpagepadd"
                     android:paddingRight="@dimen/firstpagepadd"
@@ -56,7 +59,7 @@
                     android:layout_height="0px"
                     android:layout_weight="1"
                     android:gravity="center_horizontal|bottom"
-                    android:text="@{live.wea_wendu}"
+                    android:text="@{elements.wd}"
                     android:textSize="@dimen/firstpageindexsize" />
 
                 <TextView
@@ -91,7 +94,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0px"
-                    android:layout_weight="1.2"
+                    android:layout_weight="1.5"
                     android:paddingLeft="@dimen/firstpagepadd"
                     android:paddingTop="@dimen/firstpagepadd"
                     android:paddingRight="@dimen/firstpagepadd"
@@ -113,7 +116,7 @@
                     android:layout_height="0px"
                     android:layout_weight="1"
                     android:gravity="center_horizontal|bottom"
-                    android:text="@{live.wea_shidu}"
+                    android:text="@{elements.sd}"
                     android:textSize="@dimen/firstpageindexsize" />
                 <TextView
                     android:textColor="#fff"
@@ -147,7 +150,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0px"
-                    android:layout_weight="1.2"
+                    android:layout_weight="1.5"
                     android:paddingLeft="@dimen/firstpagepadd"
                     android:paddingTop="@dimen/firstpagepadd"
                     android:paddingRight="@dimen/firstpagepadd"
@@ -169,7 +172,7 @@
                     android:layout_height="0px"
                     android:layout_weight="1"
                     android:gravity="center_horizontal|bottom"
-                    android:text="@{live.wea_yuliang}"
+                    android:text="@{elements.js}"
                     android:textSize="@dimen/firstpageindexsize" />
                 <TextView
                     android:textColor="#fff"
@@ -202,7 +205,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0px"
-                    android:layout_weight="1.2"
+                    android:layout_weight="1.5"
                     android:paddingLeft="@dimen/firstpagepadd"
                     android:paddingTop="@dimen/firstpagepadd"
                     android:paddingRight="@dimen/firstpagepadd"
@@ -224,7 +227,7 @@
                     android:layout_height="0px"
                     android:layout_weight="1"
                     android:gravity="center_horizontal|bottom"
-                    android:text="@{live.wea_fengsu}"
+                    android:text="@{elements.fs}"
                     android:textSize="@dimen/firstpageindexsize" />
                 <TextView
                     android:textColor="#fff"
@@ -256,7 +259,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0px"
-                    android:layout_weight="1.2"
+                    android:layout_weight="1.5"
                     android:paddingLeft="@dimen/firstpagepadd"
                     android:paddingTop="@dimen/firstpagepadd"
                     android:paddingRight="@dimen/firstpagepadd"
@@ -276,16 +279,11 @@
                     android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="0px"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal|bottom"
-                    android:text="@{live.wea_fengxiang}"
+                    android:layout_weight="2"
+                    android:gravity="center_horizontal"
+                    android:text="@{elements.fx}"
                     android:textSize="10sp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0px"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0px"
@@ -309,7 +307,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0px"
-                    android:layout_weight="1.2"
+                    android:layout_weight="1.5"
                     android:paddingLeft="@dimen/firstpagepadd"
                     android:paddingTop="@dimen/firstpagepadd"
                     android:paddingRight="@dimen/firstpagepadd"
@@ -331,7 +329,7 @@
                     android:layout_height="0px"
                     android:layout_weight="1"
                     android:gravity="center_horizontal|bottom"
-                    android:text="@{live.wea_qiya}"
+                    android:text="@{elements.qy}"
                     android:textSize="@dimen/firstpageindexsize" />
                 <TextView
                     android:textColor="#fff"

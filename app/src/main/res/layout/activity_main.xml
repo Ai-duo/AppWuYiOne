@@ -94,7 +94,7 @@
                 android:layout_weight="5"
                 android:background="#555"
                 app:marqueeview_text_color="#fff"
-                app:marqueeview_text_size="18"
+                app:marqueeview_text_size="15"
                 app:marqueeview_text_speed="2.0"
                 app:setText="@{wea.wea_txt1}" />
         </LinearLayout>

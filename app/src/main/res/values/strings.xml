@@ -2,9 +2,9 @@
     <string name="app_name">AppWuYi</string>
     <dimen name="maintitle">20sp</dimen>
     <dimen name="maindate">8sp</dimen>
-    <dimen name="mainwea">16sp</dimen>
+    <dimen name="mainwea">14sp</dimen>
     <dimen name="mainweainfo">35sp</dimen>
-    <dimen name="firstpagepadd">7px</dimen>
+    <dimen name="firstpagepadd">2px</dimen>
     <dimen name="firstpagetextsize">12sp</dimen>
     <dimen name="firstpageindexsize">10sp</dimen>
     <dimen name="secondpagepadd">7px</dimen>

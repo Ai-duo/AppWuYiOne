@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
 
 
 import android.content.Intent;
@@ -42,8 +43,10 @@ public class MainActivity extends AppCompatActivity {
         Log.i("TAG", "onCreate");
         initFragment();
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        Intent intent = new Intent(this, ElementsService.class);
+        startService(intent);
         initTask();
-
+        initLiveData();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.contenter, firstFragment);
@@ -51,6 +54,15 @@ public class MainActivity extends AppCompatActivity {
         changFragment();
     }
 
+    public void initLiveData(){
+        LiveDataBus.get().with("elements",Elements.class).observe(this, new Observer<Elements>() {
+            @Override
+            public void onChanged(Elements elements) {
+                Log.i("TAG","收到数据。。。。。。。。");
+                firstFragment.updateInfo(elements);
+            }
+        });
+    }
 
     public void initFragment() {
         firstFragment = new FirstFragment();
@@ -73,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 Request wea = new Request.Builder().url("http://61.153.246.242:8888/qxdata/QxService.svc/getdayybdata/58642").build();
                 Request seven = new Request.Builder().url("http://115.220.4.68:8081/qxdata/QxService.svc/geths7dayybdata/K2159").build();
 
-                client.newCall(live).enqueue(new Callback() {
+             /*   client.newCall(live).enqueue(new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
 
@@ -89,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                         Live lives = gson.fromJson(body, Live.class);
                         EventBus.getDefault().post(lives);
                     }
-                });
+                });*/
 
                 client.newCall(wea).enqueue(new Callback() {
                     @Override
@@ -120,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void updateTime(UpdateTime index) {
         Log.i("TAG", "收到：" + index.toString());
-        mainBinding.setUpdate(index.time);
+       // mainBinding.setUpdate(index.time);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
