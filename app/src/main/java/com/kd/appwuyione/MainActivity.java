@@ -47,10 +47,6 @@ public class MainActivity extends AppCompatActivity {
         startService(intent);
         initTask();
         initLiveData();
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.contenter, firstFragment);
-        transaction.commit();
         changFragment();
     }
 
@@ -132,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void updateTime(UpdateTime index) {
         Log.i("TAG", "收到：" + index.toString());
-       // mainBinding.setUpdate(index.time);
+        mainBinding.setUpdate(index.time);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -156,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Lunar lunar = new Lunar(Calendar.getInstance());
-                EventBus.getDefault().post(dateFormat.format(new Date()) + "\n" + lunar.getAllDate());
+                EventBus.getDefault().post(dateFormat.format(new Date()) );
             }
         };
         timer1 = new Timer();
