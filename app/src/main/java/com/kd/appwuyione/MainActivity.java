@@ -14,6 +14,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.kd.appwuyione.databinding.ActivityMainBinding;
+import com.kd.appwuyione.databinding.ActivityMainsBinding;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -23,6 +24,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -33,7 +35,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
-    ActivityMainBinding mainBinding;
+    ActivityMainsBinding mainBinding;
     FirstFragment firstFragment;
 
     @Override
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         EventBus.getDefault().register(this);
         Log.i("TAG", "onCreate");
         initFragment();
-        mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_mains);
         Intent intent = new Intent(this, ElementsService.class);
         startService(intent);
         initTask();
@@ -55,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(Elements elements) {
                 Log.i("TAG","收到数据。。。。。。。。");
-                firstFragment.updateInfo(elements);
+               mainBinding.setElements(elements);
             }
         });
     }
@@ -144,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public TimerTask dates;
-    final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年M月dd日 HH:mm");
+    final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年M月dd日 E HH:mm", Locale.CHINA);
 
     public void initTask() {
 
@@ -152,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Lunar lunar = new Lunar(Calendar.getInstance());
-                EventBus.getDefault().post(dateFormat.format(new Date()) );
+                EventBus.getDefault().post(dateFormat.format(new Date())+"\n"+lunar.getAllDate() );
             }
         };
         timer1 = new Timer();
