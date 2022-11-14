@@ -65,7 +65,7 @@ public class ElementsService extends Service {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                getElements(in);
+                getElements(port,in);
             }
         }, 0, 10000);*/
       /*  new Thread(new Runnable() {
@@ -423,7 +423,7 @@ public class ElementsService extends Service {
     //风向
     String fx = "--";//1
     //风速
-    String fs = "--";//2
+    String fs1 = "--";//2
     //降水
     String js = "--";//13
     //温度
@@ -465,6 +465,7 @@ public class ElementsService extends Service {
             },0,60*1000);
         }
     }
+    String fl = "";
     public void getElements(String port,String info) {
         //builder.delete(0, builder.length());
         //开始接受PM2.5数据
@@ -544,12 +545,41 @@ public class ElementsService extends Service {
             }
             try {
                 if (infoss[4].charAt(1) == '1') {
-                    String fs1 = infoss[qc + index.get(1)];
+                    String fss = infoss[qc + index.get(1)];
                     Log.i("TAG", "风速:" + fs1);
-                    if (!isNum(fs1)) {
+                    if (!isNum(fss)) {
                         //fs = "";
                     } else {
-                        fs = Float.parseFloat(infoss[qc + index.get(1)]) / 10 + "";
+                       float fs=Float.parseFloat(fss) / 10;
+                        fs1 =  fs + "";
+
+                        if(fs<0.3){
+                            fl="";
+                        }else if(fs<1.5){
+                            fl="一级";
+                        }else if(fs<3.3){
+                            fl="二级";
+                        }else if(fs<5.4){
+                            fl="三级";
+                        }else if(fs<7.9){
+                            fl="四级";
+                        }else if(fs<10.7){
+                            fl="五级";
+                        }else if(fs<13.8){
+                            fl="六级";
+                        }else if(fs<17.1){
+                            fl="七级";
+                        }else if(fs<20.7){
+                            fl="八级";
+                        }else if(fs<24.4){
+                            fl="九级";
+                        }else if(fs<28.4){
+                            fl="十级";
+                        }else if(fs<32.6){
+                            fl="十一级";
+                        }else {
+                            fl="十二级";
+                        }
                     }
                 }
             } catch (Exception e) {
@@ -695,7 +725,7 @@ public class ElementsService extends Service {
                     info(info).
                     date(date).
                     fx(fx).
-                    fs(fs).
+                    fs(fs1).
                     js(js).
                     sd(sd).
                     max_wd(max_wd).
@@ -705,6 +735,7 @@ public class ElementsService extends Service {
                     wd(wd).
                     qy(qy).
                     njd(njd).
+                    fl(fl).
                     build();
             LiveDataBus.get().with("elements").postValue(elements);
             sendCount++;

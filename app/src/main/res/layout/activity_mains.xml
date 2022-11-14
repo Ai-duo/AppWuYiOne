@@ -28,7 +28,7 @@
     <LinearLayout
         android:layout_width="384px"
         android:layout_height="192px"
-        android:background="@drawable/db1"
+        android:background="@drawable/back"
         android:orientation="vertical"
         app:setBackImage="@{backIndex}">
 
@@ -42,9 +42,9 @@
                 android:layout_width="150px"
                 android:layout_height="40px"
                 android:gravity="center"
-                android:text="通辽气象"
-                android:textColor="#FFF"
-                android:textSize="28px" />
+                android:text="金煤化工专项自动气象站\n(C1091)"
+                android:textColor="#008"
+                android:textSize="12px" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -52,7 +52,7 @@
                 android:gravity="center_vertical|right"
                 android:paddingRight="16px"
                 android:text="@{date}"
-                android:textColor="#FFF"
+                android:textColor="#008"
                 android:textSize="12px" />
         </LinearLayout>
 
@@ -90,7 +90,7 @@
                     android:layout_marginTop="25px"
                     android:gravity="center"
                     android:text="@{elements.wd+`℃`}"
-                    android:textSize="13px" />
+                    android:textSize="11px" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="56px"
@@ -120,7 +120,7 @@
                     android:layout_marginTop="25px"
                     android:gravity="center"
                     android:text="@{elements.sd+`%RH`}"
-                    android:textSize="13px" />
+                    android:textSize="11px" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="56px"
@@ -171,14 +171,21 @@
                     android:gravity="center"
                     android:text="风速"
                     android:textSize="11px" />
-
                 <TextView
                     android:layout_width="38px"
                     android:layout_height="15px"
-                    android:layout_marginTop="25px"
+                    android:layout_marginTop="10px"
+                    android:gravity="center"
+                    android:textColor="#FF0"
+                    android:text="@{elements.fl}"
+                    android:textSize="12px" />
+                <TextView
+                    android:layout_width="38px"
+                    android:layout_height="15px"
+
                     android:gravity="center"
                     android:text="@{elements.fs+`m/s`}"
-                    android:textSize="13px" />
+                    android:textSize="11px" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="56px"
@@ -264,7 +271,7 @@
                 android:background="#555"
                 app:marqueeview_text_color="#fff"
                 app:marqueeview_text_size="10"
-                app:marqueeview_text_speed="2.0"
+                app:marqueeview_text_speed="1.0"
                 app:setText="@{wea.wea_txt1}" />
         </LinearLayout>
         <!-- <LinearLayout

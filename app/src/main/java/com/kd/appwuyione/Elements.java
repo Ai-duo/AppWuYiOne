@@ -3,7 +3,7 @@ package com.kd.appwuyione;
 import android.app.AlertDialog.Builder;
 
 public class Elements {
-    private String  info ,date, time, wd, max_wd, min_wd, sd, min_sd, fx, fs, js, qy, njd;
+    public String  info ,date, time, wd, max_wd, min_wd, sd, min_sd, fx, fs, js, qy, njd,fl;
 
 
     private Elements(Builder builder){
@@ -20,6 +20,7 @@ public class Elements {
         this.js = builder.js;
         this.qy = builder.qy;
         this.njd = builder.njd;
+        this.fl = builder.fl;
     }
 
     public String getInfo() {
@@ -118,6 +119,14 @@ public class Elements {
         this.js = js;
     }
 
+    public String getFl() {
+        return fl;
+    }
+
+    public void setFl(String fl) {
+        this.fl = fl;
+    }
+
     public void setQy(String qy) {
         this.qy = qy;
     }
@@ -127,7 +136,7 @@ public class Elements {
     }
 
     public static class Builder{
-        private String info,date, time, wd, max_wd, min_wd, sd, min_sd, fx, fs, js, qy, njd;
+        private String info,date, time, wd, max_wd, min_wd, sd, min_sd, fx, fs, js, qy, njd,fl;
         public Builder info(String info){
             this.info = info;
             return this;
@@ -175,6 +184,10 @@ public class Elements {
             return this;
         }public Builder njd(String njd){
             this.njd = njd;
+            return this;
+        }
+        public Builder fl(String fl){
+            this.fl = fl;
             return this;
         }
         public Elements build(){

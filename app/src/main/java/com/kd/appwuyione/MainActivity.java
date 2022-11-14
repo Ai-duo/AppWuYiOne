@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 final Request live = new Request.Builder().url("http://61.153.246.242:8888/qxdata/QxService.svc/getnewzdzhourdata/58642").build();
                 Request zhish = new Request.Builder().url("http://115.220.4.68:8081/qxdata/QxService.svc/gettszsybdata/K2159").build();
 
-                Request wea = new Request.Builder().url("http://61.153.246.242:8888/qxdata/QxService.svc/getdayybdata/58642").build();
+                Request wea = new Request.Builder().url("http://115.220.4.68:8081/qxdata/QXSERVICE.SVC/getdayybdata/54135").build();
                 Request seven = new Request.Builder().url("http://115.220.4.68:8081/qxdata/QxService.svc/geths7dayybdata/K2159").build();
 
              /*   client.newCall(live).enqueue(new Callback() {
